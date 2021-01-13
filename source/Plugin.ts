@@ -2,6 +2,7 @@ import type KubernetesObject from "./KubernetesObject";
 import type Metadata from "./Metadata";
 import type Bistable from "./Bistable";
 import type Context from "./Context";
+import type AnyContext from "./AnyContext";
 
 export default
 abstract class Plugin implements KubernetesObject, Bistable {
@@ -12,7 +13,7 @@ abstract class Plugin implements KubernetesObject, Bistable {
     /**
      * Activates the resource.
      */
-    abstract activate (ctx?: Context): Promise<void>;
+    abstract activate (ctx?: AnyContext): Promise<void>;
 
     /**
      * @returns a `boolean` indicating whether the resource is initialized.

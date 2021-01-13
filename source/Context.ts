@@ -16,16 +16,16 @@ import StoragePlugin from "./plugins/StoragePlugin";
  */
 export default
 interface Context <
-    AuthenticationPluginType extends AuthenticationPlugin = AuthenticationPlugin,
-    BackupPluginType extends BackupPlugin = BackupPlugin,
-    CachePluginType extends CachePlugin = CachePlugin,
-    ChatPluginType extends ChatPlugin = ChatPlugin,
-    ConfigPluginType extends ConfigurationPlugin = ConfigurationPlugin,
-    EmailPluginType extends EmailPlugin = EmailPlugin,
-    FaxPluginType extends FaxPlugin = FaxPlugin,
-    LoggingPluginType extends LoggingPlugin = LoggingPlugin,
-    MMSPluginType extends MMSPlugin = MMSPlugin,
-    StoragePluginType extends StoragePlugin = StoragePlugin,
+    AuthenticationPluginType extends AuthenticationPlugin | null = null,
+    BackupPluginType extends BackupPlugin | null = null,
+    CachePluginType extends CachePlugin | null = null,
+    ChatPluginType extends ChatPlugin | null = null,
+    ConfigPluginType extends ConfigurationPlugin | null = null,
+    EmailPluginType extends EmailPlugin | null = null,
+    FaxPluginType extends FaxPlugin | null = null,
+    LoggingPluginType extends LoggingPlugin | null = null,
+    MMSPluginType extends MMSPlugin | null = null,
+    StoragePluginType extends StoragePlugin | null = null,
 > {
     init: InitPlugin;
     authn?: AuthenticationPluginType;
