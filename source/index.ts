@@ -45,3 +45,7 @@ export {
     PresignedURLOptions,
     Tags,
 } from "./plugins/StoragePlugin";
+
+export { default as talc } from "./talc";
+export { default as tauc } from "./tauc";
+export { default as uuidcmp } from "./uuidcmp";

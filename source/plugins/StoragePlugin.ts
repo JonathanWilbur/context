@@ -126,4 +126,5 @@ abstract class StoragePlugin extends Plugin {
     public abstract listObjectVersions (bucketName: string, oid: StorageObjectID): Promise<AsyncIterableIterator<StorageObjectInfo>>;
     public abstract putObject (bucketName: string, oid: StorageObjectID, content: Buffer): Promise<void>;
     public abstract putObjectTagging (bucketName: string, oid: StorageObjectID, tags: Tags): Promise<void>;
+    public abstract urlOf (bucketName: string, oid: StorageObjectID): Promise<string>;
 }
