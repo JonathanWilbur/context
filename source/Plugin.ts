@@ -13,7 +13,7 @@ abstract class Plugin implements KubernetesObject, Bistable {
     /**
      * Activates the resource.
      */
-    abstract activate (ctx?: AnyContext): Promise<void>;
+    abstract activate (ctx?: AnyContext, ...otherArgs: any[]): Promise<void>;
 
     /**
      * @returns a `boolean` indicating whether the resource is initialized.
@@ -23,7 +23,7 @@ abstract class Plugin implements KubernetesObject, Bistable {
     /**
      * Deactivates the resource.
      */
-    abstract deactivate (ctx?: Context): Promise<void>;
+    abstract deactivate (ctx?: Context, ...otherArgs: any[]): Promise<void>;
 
     /**
      * @returns a `boolean` indicating whether the resource is deactivated.
