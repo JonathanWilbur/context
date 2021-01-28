@@ -14,12 +14,6 @@ abstract class ConfigurationPlugin <AppConfig extends Record<string, any> = Reco
     public abstract activate (): Promise<void>;
 
     /**
-     * A copy of the configuration cached in memory. This is not meant to be
-     * read from directly, because configuration reads would lose traceability.
-     */
-    protected cache!: AppConfig;
-
-    /**
      * A copy of the configuration, but composed entirely of default values.
      */
     public abstract readonly defaults: AppConfig;
@@ -40,8 +34,8 @@ abstract class ConfigurationPlugin <AppConfig extends Record<string, any> = Reco
      * The method for updating `this.cache`. This fills in any unsupplied
      * configuration values with their defaults.
      */
-    protected setCache (loadedValues: RecursivePartial<AppConfig>): void {
-        this.cache = _.defaultsDeep(loadedValues, this.defaults);
+    protected updateValues (loadedValues: RecursivePartial<AppConfig>): void {
+        this.values = _.defaultsDeep(loadedValues, this.defaults);
         this.events.emit("loaded");
     }
 
@@ -58,7 +52,7 @@ abstract class ConfigurationPlugin <AppConfig extends Record<string, any> = Reco
      * be read from this.
      */
     public dump (): any {
-        return JSON.stringify(this.cache);
+        return JSON.stringify(this.values);
     }
 
     /**
