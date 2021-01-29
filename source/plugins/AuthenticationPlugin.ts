@@ -12,7 +12,11 @@ abstract class AuthenticationPlugin <
     CheckResponse extends WithAuthenticated = WithAuthenticated,
 > extends Plugin {
     public readonly kind: PluginKind.AuthenticationPlugin = PluginKind.AuthenticationPlugin as const;
-
+    /**
+     * This should be one of the identifiers registered here:
+     * https://www.iana.org/assignments/sasl-mechanisms/sasl-mechanisms.xhtml
+     */
+    public abstract saslMechanism: string;
     public abstract login (args: LoginRequest): Promise<LoginResponse>;
     public abstract logout (args: LogoutRequest): Promise<LogoutResponse>;
     public abstract check (args: CheckRequest): Promise<CheckResponse>;
