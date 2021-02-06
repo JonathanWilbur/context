@@ -1,5 +1,6 @@
 import Plugin from "../Plugin";
 import PluginKind from "../PluginKind";
+import type { Readable } from "stream";
 
 export
 interface StorageObjectID {
@@ -124,7 +125,7 @@ abstract class StoragePlugin extends Plugin {
     public abstract listBuckets (): Promise<AsyncIterableIterator<BucketInfo>>;
     public abstract listObjects (bucketName: string, prefix?: string): Promise<AsyncIterableIterator<StorageObjectInfo>>;
     public abstract listObjectVersions (bucketName: string, oid: StorageObjectID): Promise<AsyncIterableIterator<StorageObjectInfo>>;
-    public abstract putObject (bucketName: string, oid: StorageObjectID, content: Buffer): Promise<void>;
+    public abstract putObject (bucketName: string, oid: StorageObjectID, content: Buffer | Readable): Promise<void>;
     public abstract putObjectTagging (bucketName: string, oid: StorageObjectID, tags: Tags): Promise<void>;
     public abstract urlOf (bucketName: string, oid: StorageObjectID): Promise<string>;
 }
