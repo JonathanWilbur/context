@@ -12,5 +12,5 @@ abstract class BackupPlugin <
 
     public abstract create (args: BackupArguments): Promise<void>;
     public abstract restore (args: RestoreArguments): Promise<void>;
-    public abstract history (): AsyncIterableIterator<HistoryItem>;
+    public abstract history (...args: any[]): AsyncIterableIterator<HistoryItem>;
 }

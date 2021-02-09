@@ -10,6 +10,8 @@ abstract class ConfigurationPlugin <AppConfig extends Record<string, any> = Reco
 
     /**
      * @param ctx An context that can be used to obtain more information.
+     *
+     * This method MUST call `this.load()`.
      */
     public abstract activate (): Promise<void>;
 
@@ -45,7 +47,7 @@ abstract class ConfigurationPlugin <AppConfig extends Record<string, any> = Reco
      *
      * This should be triggered by `SIGHUP`.
      */
-    public abstract load (): Promise<void>;
+    public abstract load (...args: any[]): Promise<void>;
 
     /**
      * A method for dumping JSON for diagnostic purposes. Configuration MUST NOT
@@ -87,10 +89,5 @@ abstract class ConfigurationPlugin <AppConfig extends Record<string, any> = Reco
         } catch (e) {
             return undefined;
         }
-    }
-
-    constructor () {
-        super();
-        this.load();
     }
 }
