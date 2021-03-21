@@ -23,7 +23,7 @@ export { default as BackupPlugin } from "./plugins/BackupPlugin";
 export { default as CachePlugin } from "./plugins/CachePlugin";
 export { default as ChatPlugin } from "./plugins/ChatPlugin";
 export { default as ConfigurationPlugin } from "./plugins/ConfigurationPlugin";
-export { default as EmailPlugin } from "./plugins/EmailPlugin";
+export { default as SMTPPlugin } from "./plugins/SMTPPlugin";
 export { default as ExecutionPlugin } from "./plugins/ExecutionPlugin";
 export { default as FaxPlugin } from "./plugins/FaxPlugin";
 export { default as HookPlugin } from "./plugins/HookPlugin";
@@ -33,7 +33,7 @@ export { default as MMSPlugin } from "./plugins/MMSPlugin";
 export { default as StoragePlugin } from "./plugins/StoragePlugin";
 
 export type { SendChatArgs } from "./plugins/ChatPlugin";
-export type { Attachment, EmailUser, SendEmailArgs } from "./plugins/EmailPlugin";
+export type { Attachment, EmailUser, SendEmailArgs } from "./plugins/SMTPPlugin";
 export type { SendFaxArgs } from "./plugins/FaxPlugin";
 export type { SendMMSArgs } from "./plugins/MMSPlugin";
 export {

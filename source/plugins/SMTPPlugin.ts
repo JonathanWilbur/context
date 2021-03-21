@@ -3,8 +3,10 @@ import PluginKind from "../PluginKind";
 
 export
 interface Attachment {
+    filename: string;
     contentType: string;
     content: Buffer;
+    headers?: Record<string, string>;
 }
 
 export
@@ -26,7 +28,7 @@ interface SendEmailArgs {
 }
 
 export default
-abstract class EmailPlugin extends Plugin {
-    public readonly kind: PluginKind.EmailPlugin = PluginKind.EmailPlugin as const;
+abstract class SMTPPlugin extends Plugin {
+    public readonly kind: PluginKind.SMTPPlugin = PluginKind.SMTPPlugin as const;
     public abstract send (args: SendEmailArgs): Promise<void>;
 }

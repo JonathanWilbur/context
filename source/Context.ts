@@ -3,7 +3,7 @@ import BackupPlugin from "./plugins/BackupPlugin";
 import CachePlugin from "./plugins/CachePlugin";
 import ChatPlugin from "./plugins/ChatPlugin";
 import ConfigurationPlugin from "./plugins/ConfigurationPlugin";
-import EmailPlugin from "./plugins/EmailPlugin";
+import SMTPPlugin from "./plugins/SMTPPlugin";
 import FaxPlugin from "./plugins/FaxPlugin";
 import InitPlugin from "./plugins/InitPlugin";
 import LoggingPlugin from "./plugins/LoggingPlugin";
@@ -21,7 +21,7 @@ interface Context <
     CachePluginType extends CachePlugin | null = null,
     ChatPluginType extends ChatPlugin | null = null,
     ConfigPluginType extends ConfigurationPlugin | null = null,
-    EmailPluginType extends EmailPlugin | null = null,
+    SMTPPluginType extends SMTPPlugin | null = null,
     FaxPluginType extends FaxPlugin | null = null,
     LoggingPluginType extends LoggingPlugin | null = null,
     MMSPluginType extends MMSPlugin | null = null,
@@ -33,7 +33,7 @@ interface Context <
     cache?: CachePluginType;
     chat?: ChatPluginType;
     config?: ConfigPluginType;
-    email?: EmailPluginType;
+    email?: SMTPPluginType;
     fax?: FaxPluginType;
     log?: LoggingPluginType;
     mms?: MMSPluginType;
