@@ -18,6 +18,8 @@ interface EmailUser {
 export
 interface SendEmailArgs {
     from: EmailUser;
+    replyTo?: EmailUser;
+    sender?: EmailUser;
     to?: EmailUser[];
     cc?: EmailUser[];
     bcc?: EmailUser[];
